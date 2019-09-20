@@ -4,7 +4,7 @@ export const getFilms = () => {
     return new Promise((resolve, reject) => {
         return setTimeout(() => {
             resolve(data.films);
-        }, 1500);
+        }, 1000);
     });
 };
 
@@ -12,7 +12,7 @@ export const getSerials = () => {
     return new Promise((resolve, reject) => {
         return setTimeout(() => {
             resolve(data.serials);
-        }, 1500);
+        }, 500);
     });
 };
 

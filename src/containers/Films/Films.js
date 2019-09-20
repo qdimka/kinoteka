@@ -11,7 +11,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        films: state.films.films
+        films: state.films.films,
+        loading: state.films.loading
     };
 }
 
@@ -21,8 +22,9 @@ class Films extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
-            <FilmsList films={this.props.films}/>
+            <FilmsList loading={this.props.loading} films={this.props.films}/>
         )
     }
 }
