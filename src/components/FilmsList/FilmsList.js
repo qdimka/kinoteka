@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmCard from "../FilmCard/FilmCard";
 import classes from './FilmsList.module.css';
-import FilmContentLoader from "./FilmContentLoader";
+import FilmContentLoader from "../FilmCard/FilmCardContentLoader";
 
 const FilmsList = (props) => (
     <div>
@@ -10,13 +10,15 @@ const FilmsList = (props) => (
         </div>
         <div className={classes.films}>
             {
-                props.loading ?
-                    (<FilmContentLoader />)
-                    : props.films.items.map(film => (
-                        <FilmCard title={film.title}
-                                  url={film.image}
-                                  description={film.description}/>
-                    ))
+                props.loading
+                    ? [...Array(10).keys()]
+                        .map(el => (<FilmContentLoader/>))
+                    : props.films.items
+                        .map(film => (
+                            <FilmCard title={film.title}
+                                      url={film.image}
+                                      description={film.description}/>
+                        ))
             }
         </div>
     </div>

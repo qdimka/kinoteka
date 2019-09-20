@@ -1,16 +1,16 @@
-.card {
+.item {
     width: calc(25% - 20px);
     margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1024px) {
-    .card {
+    .item {
         width: calc(50% - 20px);
     }
 }
 
 @media screen and (max-width: 768px) {
-    .card {
+    .item {
         width: calc(100% - 20px);
     }
 }

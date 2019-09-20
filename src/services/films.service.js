@@ -4,7 +4,7 @@ export const getFilms = () => {
     return new Promise((resolve, reject) => {
         return setTimeout(() => {
             resolve(data.films);
-        }, 1000);
+        }, 10000);
     });
 };
 

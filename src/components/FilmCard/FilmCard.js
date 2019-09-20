@@ -3,7 +3,7 @@ import {Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
 import classes from './FilmCard.module.css';
 
 const FilmCard = ( props ) => (
-    <Card className={classes.card}>
+    <Card className={classes.item}>
         <CardImg top width="100%" src={props.url}/>
         <CardBody>
             <CardTitle>{props.title}</CardTitle>
