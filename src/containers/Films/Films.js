@@ -16,10 +16,6 @@ const mapStateToProps = (state) => {
 }
 
 class Films extends Component {
-    constructor(){
-        super();
-    }
-
     componentDidMount() {
         this.props.getFilms();
     }

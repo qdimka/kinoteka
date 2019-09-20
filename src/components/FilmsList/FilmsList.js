@@ -1,12 +1,13 @@
 import React from 'react';
 import FilmCard from "../FilmCard/FilmCard";
+import classes from './FilmsList.module.css';
 
 const FilmsList = (props) => (
     <div>
-        <div className="header">
+        <div className={classes.header}>
             Films
         </div>
-        <div className="films">
+        <div className={classes.films}>
             {
                 props.films.items.map(film => (
                     <FilmCard title={film.title}

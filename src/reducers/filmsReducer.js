@@ -1,4 +1,4 @@
-import {FILMS_LOADED} from "../constants/action-types";
+import {FILMS_LOADED, FILMS_PENDING} from "../constants/action-types";
 
 const initialState = {
     loading: true,
@@ -8,14 +8,32 @@ const initialState = {
     }
 };
 
-const filmsReducer = (state = initialState, action) => {
-    if (action.type === FILMS_LOADED) {
-        return {
-            loading: false,
-            films: {...action.payload}
-        };
+const filmsLoading = (state) => {
+    return {
+        ...state,
+        loading: true
     }
-    return state;
+}
+
+const filmsLoaded = (state, action) => {
+    return {
+        ...state,
+        loading: false,
+        films: {
+            ...action.payload
+        }
+    }
+};
+
+const filmsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FILMS_PENDING:
+            return filmsLoading(state);
+        case FILMS_LOADED:
+            return filmsLoaded(state, action);
+        default:
+            return { ...state };
+    }
 };
 
 export default filmsReducer;
