@@ -3,12 +3,7 @@
 }
 
 .films {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.empty_content {
-
+    margin: -10px
 }
