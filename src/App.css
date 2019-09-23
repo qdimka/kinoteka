@@ -98,6 +98,15 @@ li a.dropdown-toggle::after {
     flex-direction: column;
 }
 
+.toast {
+    width: 350px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    z-index: 9999;
+}
+
 @media only screen and (max-width: 500px) {
     body {
         overflow: hidden;

@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
         films: state.films.films,
         loading: state.films.loading
     };
-}
+};
 
 class Films extends Component {
     componentDidMount() {

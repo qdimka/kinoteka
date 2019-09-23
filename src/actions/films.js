@@ -1,5 +1,5 @@
 import {getFilms} from "../services/films.service";
-import {FILMS_LOADED, FILMS_PENDING} from "../constants/action-types";
+import {FILMS_LOADED, FILMS_PENDING, SHOW_TOAST} from "../constants/action-types";
 
 export const getFilmsListPending = () => {
     return {
@@ -14,6 +14,11 @@ export const getFilmsList = () => {
             .then(data => dispatch({
                 type: FILMS_LOADED,
                 payload: data
+            }))
+            .catch(r => dispatch({
+                type: SHOW_TOAST,
+                message: r.message,
+                title: "error_title"
             }));
     }
 };

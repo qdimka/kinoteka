@@ -3,8 +3,9 @@ import data from './data';
 export const getFilms = () => {
     return new Promise((resolve, reject) => {
         return setTimeout(() => {
-            resolve(data.films);
-        }, 10000);
+            //resolve(data.films);
+            reject(new Error("Whoops!"))
+        }, 100);
     });
 };
 

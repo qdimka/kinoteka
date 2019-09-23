@@ -7,6 +7,7 @@ import {Scrollbars} from 'react-custom-scrollbars';
 import {Toggle} from "../../actions/toggle";
 import {connect} from "react-redux";
 import Films from "../Films/Films";
+import Toaster from "../../components/Toaster/Toaster";
 
 const mapStateToProps = state => {
     return {isOpen: state.ui.isOpen};
@@ -20,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const Layout = props => (
     <Container fluid className={classNames('content', {'is-open': props.isOpen})}>
+        <Toaster/>
         <NavBar toggle={() => props.toggle(props.isOpen)}/>
         <Scrollbars autoHide>
             <Switch>
