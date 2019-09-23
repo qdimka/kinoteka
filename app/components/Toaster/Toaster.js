@@ -1,24 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Toast, ToastBody, ToastHeader} from "reactstrap";
 import {connect} from "react-redux";
+import {closeToast} from "../../actions/toasts";
 
-const mapStateToProps = (state) => {
-    return {
-        show: state.toasts.title,
-        title: state.toasts.title,
-        message: state.toasts.message
-    };
+const mapStateToProps = (state) => ({
+  show: state.toasts.title,
+  title: state.toasts.title,
+  message: state.toasts.message
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  close: () => dispatch(closeToast())
+});
+
+const Toaster = ({show, title, message, close}) => {
+  useEffect(() => {
+    const timer = setTimeout(close, 5000);
+    return () => clearTimeout(timer);
+  });
+
+  return (
+    <Toast isOpen={show}>
+      <ToastHeader icon="danger">
+        {title}
+      </ToastHeader>
+      <ToastBody>
+        {message}
+      </ToastBody>
+    </Toast>
+  )
 };
 
-const Toaster = (props) => (
-    <Toast isOpen={props.show}>
-        <ToastHeader icon="danger">
-            {props.title}
-        </ToastHeader>
-        <ToastBody>
-            {props.message}
-        </ToastBody>
-    </Toast>
-);
-
-export default connect(mapStateToProps, null)(Toaster);
+export default connect(mapStateToProps, mapDispatchToProps)(Toaster);

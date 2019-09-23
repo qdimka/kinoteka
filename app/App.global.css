@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 .App {
     display: flex;
@@ -30,7 +31,7 @@ a:focus {
     color: #fff;
     margin-left: -250px;
     transition: all 0.5s;
-    min-height: 100vh;
+    height: calc(100vh - 28px);
 }
 
 .sidebar.is-open {
@@ -72,6 +73,10 @@ li a.dropdown-toggle::after {
     left: 60%;
     top: 10%
 }
+.nav-link,
+.nav-link:hover {
+  color: inherit;
+}
 
 .sidebar-header > span {
     position: relative;
@@ -93,7 +98,6 @@ li a.dropdown-toggle::after {
 .content {
     padding: 10px 20px;
     margin-left: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -101,7 +105,7 @@ li a.dropdown-toggle::after {
 .toast {
     width: 350px;
     position: absolute;
-    top: 0;
+    top: 28px;
     right: 0;
     margin: 10px;
     z-index: 9999;

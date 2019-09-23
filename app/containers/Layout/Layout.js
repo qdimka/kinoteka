@@ -2,10 +2,10 @@ import React from 'react';
 import {Container} from "reactstrap";
 import {Route, Switch} from "react-router-dom";
 import classNames from 'classnames';
-import NavBar from '../../components/NavBar/NavBar';
 import {Scrollbars} from 'react-custom-scrollbars';
-import {Toggle} from "../../actions/toggle";
 import {connect} from "react-redux";
+import NavBar from '../../components/NavBar/NavBar';
+import {Toggle} from "../../actions/toggle";
 import Films from "../Films/Films";
 import Toaster from "../../components/Toaster/Toaster";
 
@@ -19,10 +19,10 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const Layout = props => (
-    <Container fluid className={classNames('content', {'is-open': props.isOpen})}>
+const Layout = ({ isOpen, toggle }) => (
+    <Container fluid className={classNames('content', {'is-open': isOpen})}>
         <Toaster/>
-        <NavBar toggle={() => props.toggle(props.isOpen)}/>
+        <NavBar toggle={() => toggle(isOpen)}/>
         <Scrollbars autoHide>
             <Switch>
                 <Route exact path="/popular" component={() => "Hello"}/>
