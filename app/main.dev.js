@@ -76,7 +76,7 @@ app.on('ready', async () => {
     titleBarStyle: 'customButtonsOnHover'
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/renderer/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {

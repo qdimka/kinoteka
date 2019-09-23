@@ -21,7 +21,7 @@ const Toaster = ({show, title, message, close}) => {
 
   return (
     <Toast isOpen={show}>
-      <ToastHeader icon="danger">
+      <ToastHeader icon="danger" toggle={close}>
         {title}
       </ToastHeader>
       <ToastBody>

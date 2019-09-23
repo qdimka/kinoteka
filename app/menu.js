@@ -3,8 +3,6 @@ import { app, Menu, shell, BrowserWindow } from 'electron';
 
 const buildMenu = () => buildDefaultTemplate();
 
-const buildDefaultTemplate = () => {
-  return [];
-}
+const buildDefaultTemplate = () => []
 
 export default buildMenu;
