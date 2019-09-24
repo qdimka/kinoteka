@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import App from './App';
 import store from './store/store';
+import app from 'electron';
+import {setupFrontendListener} from 'eiphop';
+
+// listen to ipc responses
+setupFrontendListener(app);
 
 ReactDOM.render(
     <Provider store={store}>

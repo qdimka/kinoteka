@@ -1,17 +1,19 @@
-import {app, BrowserWindow} from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 import isDev from 'electron-is-dev';
-import installer from 'electron-devtools-installer';
+import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
+import api from './api';
 
 let mainWindow = null;
 
 const installExtensions = () => {
-    const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-    const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
+  const extensions = [REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS];
 
-    return Promise.all(
-        extensions.map(name => installer.default(installer[name], forceDownload))
-    ).catch(console.log);
+  return extensions
+    .forEach(extension => installExtension(extension)
+      .then((name) => console.log(`Added Extension: ${name}`))
+      .catch((err) => console.log('An error occurred: ', err))
+    );
 };
 
 /**
@@ -19,54 +21,54 @@ const installExtensions = () => {
  */
 
 app.on('window-all-closed', () => {
-    // Respect the OSX convention of having the application in memory even
-    // after all windows have been closed
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+  // Respect the OSX convention of having the application in memory even
+  // after all windows have been closed
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('ready', () => {
-    if (
-        process.env.NODE_ENV === 'development' ||
-        process.env.DEBUG_PROD === 'true'
-    ) {
-        installExtensions();
+  if (isDev) {
+    installExtensions();
+  }
+
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 900,
+    autoHideMenuBar: true,
+    minWidth: 600, // set a min width!
+    minHeight: 300, // and a min height!
+    // Remove the window frame from windows applications
+    frame: false,
+    // Hide the titlebar from MacOS applications while keeping the stop lights
+    titleBarStyle: 'customButtonsOnHover', // or 'customButtonsOnHover',
+    webPreferences: {
+      nodeIntegration: true
     }
+  });
 
-    mainWindow = new BrowserWindow({
-        width: 1200,
-        height: 900,
-        autoHideMenuBar: true,
-        webPreferences: {
-            nodeIntegration: true
-        }
-    });
+  mainWindow.loadURL(isDev
+    ? 'http://localhost:3000'
+    : `file://${path.join(__dirname, '../public/index.html')}`);
 
-    mainWindow.loadURL(isDev
-        ? 'http://localhost:3000'
-        : `file://${path.join(__dirname, '../public/index.html')}`);
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
+  mainWindow.webContents.on('did-finish-load', () => {
+    if (!mainWindow) {
+      throw new Error('"mainWindow" is not defined');
     }
+    if (process.env.START_MINIMIZED) {
+      mainWindow.minimize();
+    } else {
+      mainWindow.show();
+      mainWindow.focus();
+    }
+  });
 
-    mainWindow.webContents.on('did-finish-load', () => {
-        if (!mainWindow) {
-            throw new Error('"mainWindow" is not defined');
-        }
-        if (process.env.START_MINIMIZED) {
-            mainWindow.minimize();
-        } else {
-            mainWindow.show();
-            mainWindow.focus();
-        }
-    });
-
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
-
-    // const menuBuilder = new MenuBuilder(mainWindow);
-    // menuBuilder.buildMenu();
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 });
