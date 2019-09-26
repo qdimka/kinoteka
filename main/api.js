@@ -1,5 +1,5 @@
 import app from 'electron';
 import { setupMainHandler } from 'eiphop';
-import filmActions from './actions/films';
+import filmixActions from './actions/filmixActions';
 
-setupMainHandler(app, { ...filmActions}, true);
+setupMainHandler(app, { ...filmixActions}, true);

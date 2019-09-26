@@ -2,10 +2,7 @@ import { FILMS_LOADED, FILMS_PENDING } from '../constants/action-types';
 
 const initialState = {
   loading: true,
-  films: {
-    count: 0,
-    items: []
-  }
+  films: []
 };
 
 const filmsLoading = (state) => ({

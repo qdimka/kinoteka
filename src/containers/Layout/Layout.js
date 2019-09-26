@@ -5,9 +5,9 @@ import classNames from 'classnames';
 import {Scrollbars} from 'react-custom-scrollbars';
 import {connect} from 'react-redux';
 import NavBar from '../../components/NavBar/NavBar';
-import {Toggle} from '../../actions/toggle';
+import Toggle from '../../actions/ui';
 import Films from '../Films/Films';
-import Toaster from '../../components/Toaster/Toaster';
+import Serials from '../Serials/Serials';
 
 const mapStateToProps = state => ({isOpen: state.ui.isOpen});
 
@@ -17,13 +17,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Layout = ({isOpen, toggle}) => (
     <Container fluid className={classNames('content', {'is-open': isOpen})}>
-        <Toaster/>
         <NavBar toggle={() => toggle(isOpen)}/>
         <Scrollbars autoHide>
             <Switch>
                 <Route exact path="/popular" component={() => 'Hello'}/>
+                <Route exact path="/viewing" component={() => 'Watching now'}/>
                 <Route exact path="/films" component={Films}/>
-                <Route exact path="/serials" component={() => 'Pages'}/>
+                <Route exact path="/serials" component={Serials}/>
             </Switch>
         </Scrollbars>
     </Container>

@@ -7,14 +7,11 @@ export const getFilmsListPending = () => ({
 
 export const getFilmsList = () => dispatch => {
   dispatch(getFilmsListPending());
-  emit('getFilms', 'Тарантино')
-    .then(res => dispatch({
+  emit('getFilms', {})
+    .then(data => dispatch({
       type: FILMS_LOADED,
       payload: {
-        films: {
-          count: res.length,
-          items: res
-        }
+        films: [...data]
       }
     }))
     .catch(err => dispatch({
