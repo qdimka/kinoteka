@@ -7,6 +7,18 @@
     height: 100%;
 }
 
+.item:hover {
+    transition: all 200ms ease-in;
+    transform: scale(1.02);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.item:active {
+    transform: scale(1);
+    background: rgba(0, 0, 0, 0.13)
+}
+
 .bages {
     display: flex;
     justify-content: space-between;

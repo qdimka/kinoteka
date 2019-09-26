@@ -1,4 +1,4 @@
-import { SERIALS_LOADED, SERIALS_PENDING } from '../constants/action-types';
+import { SERIALS_LOADED, SERIALS_PENDING } from './SerialsTypes';
 
 const initialState = {
   loading: true,

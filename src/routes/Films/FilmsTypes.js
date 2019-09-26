@@ -1,0 +1,2 @@
+export const FILMS_PENDING = 'FILMS_PENDING';
+export const FILMS_LOADED = 'FILMS_LOADED';

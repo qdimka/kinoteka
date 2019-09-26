@@ -1,0 +1,2 @@
+export const SERIALS_PENDING = 'SERIALS_PENDING';
+export const SERIALS_LOADED = 'SERIALS_LOADED';

@@ -1,4 +1,4 @@
-import { FILMS_LOADED, FILMS_PENDING } from '../constants/action-types';
+import { FILMS_LOADED, FILMS_PENDING } from './FilmsTypes';
 
 const initialState = {
   loading: true,
@@ -23,7 +23,7 @@ const filmsReducer = (state = initialState, action) => {
     case FILMS_LOADED:
       return filmsLoaded(state, action);
     default:
-      return { ...state };
+      return state;
   }
 };
 
