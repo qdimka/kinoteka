@@ -1,7 +1,7 @@
 import React from 'react';
-import FilmCard from '../FilmCard/FilmCard';
 import classes from './FilmsList.module.css';
 import FilmContentLoader from '../FilmCard/FilmCardContentLoader';
+import FilmCard from '../FilmCard/FilmCard';
 
 const FilmsList = ({ films, loading }) => (
   <div className={classes.films}>
