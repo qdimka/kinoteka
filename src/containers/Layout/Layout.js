@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import {Scrollbars} from 'react-custom-scrollbars';
 import {connect} from 'react-redux';
 import NavBar from '../../components/NavBar/NavBar';
-import Toggle from '../../actions/ui';
+import Ui from '../../actions/ui';
 import Films from '../Films/Films';
 import Serials from '../Serials/Serials';
 
 const mapStateToProps = state => ({isOpen: state.ui.isOpen});
 
 const mapDispatchToProps = (dispatch) => ({
-    toggle: (isOpen) => dispatch(Toggle(isOpen))
+    toggle: (isOpen) => dispatch(Ui.Toggle(isOpen))
 });
 
 const Layout = ({isOpen, toggle}) => (

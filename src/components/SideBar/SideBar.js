@@ -6,12 +6,12 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { connect } from 'react-redux';
-import Toggle from '../../actions/ui';
+import Ui from '../../actions/ui';
 
 const mapStateToProps = state => ({ isOpen: state.ui.isOpen });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggle: (isOpen) => dispatch(Toggle(isOpen))
+  toggle: (isOpen) => dispatch(Ui.Toggle(isOpen))
 });
 
 const SideBar = props => (

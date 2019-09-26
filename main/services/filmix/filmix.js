@@ -38,7 +38,7 @@ const mapToData = html => {
       title: $(el).find('.name>a.btn-tooltip').text(),
       imageUrl: $(el).find('img.poster.poster-tooltip').attr('src'),
       quality: $(el).find('.quality').text().trim(),
-      year: $(el).find('a[itemprop=copyrightYear]').text()
+      year: $(el).find('.year > .item-content').text()
     };
   }).get();
 };
