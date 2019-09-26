@@ -1,83 +1,21 @@
-.moviecard {
-    background: #ffffff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 315px;
-    margin: 2em;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.poster {
-    background-size: cover;
-}
-
-.movieheader {
-    padding: 0;
-    margin: 0;
-    height: calc(100% - 100px);
-    width: 100%;
-    display: block;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.moviecard:hover {
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.moviecontent {
-    padding: 18px 18px 24px 18px;
-    margin: 0;
-}
-
-.moviecontentheader, .movieinfo {
-    display: table;
-    width: 100%;
-}
-
-.movietitle {
-    font-size: 18px;
-    margin: 0;
-    display: table-cell;
-}
-
-.movieinfo {
-    margin-top: 1em;
-}
-
-.infosection {
-    display: table-cell;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.infosection:first-of-type {
-    text-align: left;
-}
-
-.infosection:last-of-type {
-    text-align: right;
-}
-
-.infosection label {
-    display: block;
-    color: rgba(0, 0, 0, 0.5);
-    margin-bottom: .5em;
-    font-size: 9px;
-}
-
-.infosection span {
-    font-weight: 700;
-    font-size: 11px;
-}
-
 .item {
     width: calc(25% - 20px);
     margin: 10px;
+}
+
+.cardImgTop {
+    height: 100%;
+}
+
+.bages {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px) {
+    .item {
+        width: calc(33% - 20px);
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -86,16 +24,8 @@
     }
 }
 
-@media screen and (max-width: 500px) {
-    .moviecard {
-        width: 95%;
-        max-width: 95%;
-        margin: 1em;
-        display: block;
-    }
-
-    .container {
-        padding: 0;
-        margin: 0;
+@media screen and (max-width: 768px) {
+    .item {
+        width: calc(100% - 20px);
     }
 }

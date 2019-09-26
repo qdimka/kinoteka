@@ -1,24 +1,25 @@
 import React from 'react';
 import classes from './FilmCard.module.css';
 import { Badge } from 'reactstrap';
+import CardText from 'reactstrap/lib/CardText';
+import CardTitle from 'reactstrap/es/CardTitle';
+import CardBody from 'reactstrap/lib/CardBody';
+import CardImg from 'reactstrap/lib/CardImg';
+import Card from 'reactstrap/lib/Card';
 
 const FilmCard = ({ imageUrl, title, year, quality }) => (
-  <div className={[classes.moviecard, classes.item].join(' ')}>
-    <img className={classes.movieheader} src={imageUrl}/>
-    <div className={classes.moviecontent}>
-      <div className={classes.moviecontentheader}>
-        <div className={[classes.movietitle, "text-truncate"].join(' ')}>{title}</div>
-      </div>
-      <div className={classes.movieinfo}>
-        <div className={classes.infosection}>
-          <span><Badge>{year}</Badge></span>
+  <Card className={classes.item}>
+    <CardImg top width="100%" src={imageUrl} className={classes.cardImgTop}/>
+    <CardBody>
+      <CardTitle className="text-truncate">{title}</CardTitle>
+      <CardText>
+        <div className={classes.bages}>
+          <Badge color="secondary">{year}</Badge>
+          <Badge color="success">{quality}</Badge>
         </div>
-        <div className={classes.infosection}>
-          <span><Badge color='success'>{quality}</Badge></span>
-        </div>
-      </div>
-    </div>
-  </div>
+      </CardText>
+    </CardBody>
+  </Card>
 );
 
 export default FilmCard;
