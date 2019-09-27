@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  serials: state.serials.serials,
+  serials: state.serials.items,
   loading: state.serials.loading
 });
 

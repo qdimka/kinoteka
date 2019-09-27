@@ -9,14 +9,14 @@ import Card from 'reactstrap/lib/Card';
 
 const FilmCard = ({ imageUrl, title, year, quality }) => (
   <Card className={classes.item}>
-    <CardImg top width="100%" src={imageUrl} className={classes.cardImgTop}/>
+    <CardImg top width="100%" src={imageUrl}/>
     <CardBody>
       <CardTitle className="text-truncate">{title}</CardTitle>
       <CardText>
-        <div className={classes.bages}>
+        <span className={classes.bages}>
           <Badge color="secondary">{year}</Badge>
           <Badge color="success">{quality}</Badge>
-        </div>
+        </span>
       </CardText>
     </CardBody>
   </Card>

@@ -43,7 +43,7 @@ const mapToData = html => {
   }).get();
 };
 
-export default {
+export {
   getFilms,
   getSerials,
   getMults,

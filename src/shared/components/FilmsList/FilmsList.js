@@ -7,7 +7,7 @@ const FilmsList = ({ films, loading }) => (
   <div className={classes.films}>
     {
       loading
-        ? [...Array(10).keys()]
+        ? [...Array(8).keys()]
           .map(el => (<FilmContentLoader/>))
         : films
           .map(film => (

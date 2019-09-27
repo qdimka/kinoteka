@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import serialsReducer from '../routes/Serials/SerialsReducers';
-import filmsReducer from '../routes/Films/FilmsReducer';
-import toggleReducer from '../shared/reducers/toggleReducer';
+import serialsReducer from '../modules/Serials/SerialsReducers';
+import filmsReducer from '../modules/Films/FilmsReducer';
+import toggleReducer from '../modules/Layout/LayoutReducer';
 
 const rootReducer = combineReducers({
-    ui: toggleReducer,
+    layout: toggleReducer,
     films: filmsReducer,
     serials: serialsReducer
 });

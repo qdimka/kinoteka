@@ -1,0 +1,47 @@
+{
+  "filters": [
+    {
+      "type": "select",
+      "title": "Filter_One",
+      "placeHolder": "Select value",
+      "values": [
+        {
+          "label": "Option_One",
+          "value": "1"
+        },
+        {
+          "label": "Option_Two",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "type": "search",
+      "query": "",
+      "placeHolder": "Search"
+    },
+    {
+      "type": "range",
+      "from": [
+        {
+          "label": "Option_One",
+          "value": "1"
+        },
+        {
+          "label": "Option_Two",
+          "value": "2"
+        }
+      ],
+      "to": [
+        {
+          "label": "Option_One",
+          "value": "1"
+        },
+        {
+          "label": "Option_Two",
+          "value": "2"
+        }
+      ]
+    }
+  ]
+}

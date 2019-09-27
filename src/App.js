@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.global.css';
-import Layout from './templates/Layout/Layout';
 import TitleBar from 'frameless-titlebar';
-import Router from 'react-router-dom/es/Router';
+import {BrowserRouter as Router} from 'react-router-dom';
+import LayoutContainer from './modules/Layout/LayoutContainer';
 
 
 const App = ({ isOpen, toggle }) => (
@@ -17,7 +17,7 @@ const App = ({ isOpen, toggle }) => (
           menuDimItems: false
         }}/>
       <div className="App wrapper">
-        <Layout/>
+        <LayoutContainer/>
       </div>
     </div>
   </Router>

@@ -1,10 +1,11 @@
-import { TOGGLE } from '../constants/action-types';
+import { TOGGLE } from './LayoutTypes';
+
 
 const Toggle = (isOpen) => ({
   type: TOGGLE,
   payload: !isOpen
 });
 
-export default {
+export {
   Toggle
 };

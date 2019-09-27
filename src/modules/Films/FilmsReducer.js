@@ -2,7 +2,9 @@ import { FILMS_LOADED, FILMS_PENDING } from './FilmsTypes';
 
 const initialState = {
   loading: true,
-  films: []
+  items: [],
+  filters: [],
+  paging: {}
 };
 
 const filmsLoading = (state) => ({

@@ -11,12 +11,12 @@ const getFilmsList = () => dispatch => {
     .then(data => dispatch({
       type: FILMS_LOADED,
       payload: {
-        films: [...data]
+        items: [...data]
       }
     }));
 };
 
-export default {
+export {
   getFilmsListPending,
   getFilmsList
 };

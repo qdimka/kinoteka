@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import getFilmsList from './FilmsActions';
+import { getFilmsList } from './FilmsActions';
 import FilmsView from './FilmsView';
 
 const mapDispatchToProps = (dispatch) => ({
@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  films: state.films.films,
+  films: state.films.items,
   loading: state.films.loading
 });
 

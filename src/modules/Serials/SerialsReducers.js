@@ -2,7 +2,9 @@ import { SERIALS_LOADED, SERIALS_PENDING } from './SerialsTypes';
 
 const initialState = {
   loading: true,
-  serials: []
+  items: [],
+  filters: [],
+  paging: {}
 };
 
 const serialsLoading = (state) => ({
