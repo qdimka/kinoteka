@@ -17,11 +17,14 @@
     },
     {
       "type": "search",
-      "query": "",
+      "title": "Filter_Two",
       "placeHolder": "Search"
     },
     {
       "type": "range",
+      "title": "Filter_Three",
+      "placeHolderFrom": "From",
+      "placeHolderTo": "To",
       "from": [
         {
           "label": "Option_One",
@@ -40,6 +43,14 @@
         {
           "label": "Option_Two",
           "value": "2"
+        },
+        {
+          "label": "Option_Two",
+          "value": "3"
+        },
+        {
+          "label": "Option_Two",
+          "value": "4"
         }
       ]
     }

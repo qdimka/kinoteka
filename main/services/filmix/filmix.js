@@ -2,6 +2,13 @@ import { FILMS, FOUR_K, HOST, MULTS, SERIALS, WATCHING_NOW } from './filmixConfi
 import axios from 'axios';
 import cheerio from 'cheerio';
 import iconv from 'iconv-lite';
+import https from 'https';
+
+const instance = axios.create({
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false
+  })
+});
 
 const constructUrl = (path) => `${HOST}/${path}`;
 
@@ -26,7 +33,7 @@ const getWatchingNow = () => {
 };
 
 const get = (url) => {
-  return axios
+  return instance
     .get(url, { responseType: 'arraybuffer' })
     .then(html => mapToData(iconv.decode(html.data, 'cp1251')));
 };

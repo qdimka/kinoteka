@@ -8,12 +8,17 @@ const FilmsView = ({ films, getFilms, loading }) => {
 
   return (
     <>
-      <Filters/>
+      <Filters onSubmit={filter}/>
       <ScrollableContent>
         <FilmsList loading={loading} films={films}/>
       </ScrollableContent>
     </>
   );
 };
+
+const filter = (e) => {
+  e.persist();
+  console.log({e});
+}
 
 export default FilmsView;
